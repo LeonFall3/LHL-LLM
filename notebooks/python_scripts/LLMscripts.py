@@ -21,13 +21,24 @@ def remove_stopwords(text):
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
+import pandas as pd
 
-def vectorize_column(df, column_name):
-    vectorizer = TfidfVectorizer()
+def vectorize_column(df, column_name, max_ft):
+    vectorizer = TfidfVectorizer(max_features =max_ft)
     vectors = vectorizer.fit_transform(df[column_name])
-    df[f"{column_name}_vectorized"] = list(vectors.toarray())
     
-    return df
+    return pd.DataFrame(vectors.toarray(), columns=vectorizer.get_feature_names_out())
 
-def list_to_string(list, sep=' '):
-    return sep.join(list)
+def list_to_string(lst):
+    return ' '.join(lst)
+
+prefix = "summarize: "
+def preprocess_function(examples, tokenizer):
+
+    inputs = [prefix + doc for doc in examples["text"]]
+    model_inputs = tokenizer(inputs, max_length=1024, truncation=True)
+
+    labels = tokenizer(text_target=examples["summary"], max_length=128, truncation=True)
+
+    model_inputs["labels"] = labels["input_ids"]
+    return model_inputs

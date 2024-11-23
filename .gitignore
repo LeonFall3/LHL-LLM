@@ -163,3 +163,8 @@ cython_debug/
 
 .pickle
 .pkl
+pickles/df_train_prepro.pickle
+pickles/df_train_token_prepro.pickle
+pickles/df_train_vec.pickle
+pickles/df_train_token_vec.pickle
+pickles/df_test_prepro.pickle

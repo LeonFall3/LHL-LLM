@@ -19,16 +19,4 @@ def remove_emails(text):
     cleaned_text = re.sub(email_pattern, '', text)
     return cleaned_text
 
-import nltk
-nltk.download('stopwords')
-from nltk.corpus import stopwords
-
-stop_words = stopwords.words('english')
-
-
-def remove_stopwords(text):
-
-    text = [word for word in text if word not in stop_words]
-    return text
-
 

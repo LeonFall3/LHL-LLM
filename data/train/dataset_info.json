@@ -2,19 +2,12 @@
   "citation": "",
   "description": "",
   "features": {
-    "no_stopword": {
-      "feature": {
-        "dtype": "string",
-        "_type": "Value"
-      },
-      "_type": "Sequence"
-    },
-    "label_text": {
-      "dtype": "string",
+    "input_ids": {
+      "dtype": "int64",
       "_type": "Value"
     },
-    "label": {
-      "dtype": "int64",
+    "text": {
+      "dtype": "string",
       "_type": "Value"
     }
   },

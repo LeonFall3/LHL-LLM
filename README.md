@@ -10,11 +10,17 @@ The `20_newsgroups` dataset is pre-divided into training and testing sets, each 
 I utilized the DistilBert model, specifically `DistilBertForSequenceClassification`, along with its paired tokenizer, `DistilBertTokenizer`, for preprocessing. Both were initialized using the pretrained `distilbert-base-uncased` instance.
 
 ## Performance Metrics
-Since this is a classification task, the model uses a cross-entropy loss function by default to evaluate its performance, as far as I know and based on available documentation. This loss function is applied only when labeled data is provided during training, which applies to my labeled dataset. With 7 labels, random guessing would result in a loss score of approximately **1.95**.  
+Avg Weighted Precision = 75%
+Avg Weighted Recall = 80%
+Avg Weighted F1 = 80%
 
-- In contrast, the model achieved:  
-  - A training loss of **0.81** at the start.  
-  - A final training loss of **0.52** on the training set.  
-  - A test set loss of **0.63**.  
+Avg Unweighted Precision = 75%
+Avg Unweighted Recall = 74%
+Avg Unweighted F1 = 74%
+
+F1 Accuracy = 80%
 
 
+
+## Bussiness and Data
+This model could be used in policial applications such as political parties or reaserch to gain insight into public opinion. Other applications for this type of could be scanning reviews of a product to gain sentiment from the customer base. 
